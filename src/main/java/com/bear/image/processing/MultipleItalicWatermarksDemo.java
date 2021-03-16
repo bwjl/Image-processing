@@ -4,6 +4,7 @@ import com.bear.image.processing.util.MultipleItalicWatermarksUtil;
 import lombok.Cleanup;
 
 import java.awt.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.file.Paths;
@@ -29,9 +30,11 @@ public class MultipleItalicWatermarksDemo {
     public static void main(String[] args) {
 
         @Cleanup
-        FileInputStream fileInputStream = FileUtils.openInputStream(Paths.get(IMAGE).toFile());
+        //FileInputStream fileInputStream = FileUtils.openInputStream(Paths.get(IMAGE).toFile());
+        FileInputStream fileInputStream = FileUtils.openInputStream(new File(IMAGE));
         @Cleanup
-        FileOutputStream fileOutputStream = new FileOutputStream(Paths.get(MASK_IMAGE).toFile());
+        //FileOutputStream fileOutputStream = new FileOutputStream(Paths.get(MASK_IMAGE).toFile());
+        FileOutputStream fileOutputStream = new FileOutputStream(new File(MASK_IMAGE));
 
         MultipleItalicWatermarksUtil.of(fileInputStream)
                 .to(fileOutputStream)
