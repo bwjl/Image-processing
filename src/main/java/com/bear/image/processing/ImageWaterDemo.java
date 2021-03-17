@@ -15,13 +15,14 @@ public class ImageWaterDemo {
 
     private static final String ICON = "/Users/bear/Desktop/wxcs.png";
 
-    private static final String IMAGE = "/Users/bear/Desktop/1.3.jpeg";
+    private static final String IMAGE = "/Users/bear/Desktop/w2.jpg";
 
-    private static final String MASK_IMAGE = "/Users/bear/Desktop/1.3." + RandomStringUtils.randomNumeric(10) + ".png";
+    private static final String MASK_IMAGE = "/Users/bear/Desktop/w2." + RandomStringUtils.randomNumeric(10) + ".jpg";
 
 
     public static void main(String[] args) {
 
         ImageWaterMarkUtil.markImageByIcon(ICON, IMAGE, MASK_IMAGE);
+
     }
 }

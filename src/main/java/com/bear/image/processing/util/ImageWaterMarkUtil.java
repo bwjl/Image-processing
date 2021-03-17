@@ -115,14 +115,20 @@ public class ImageWaterMarkUtil {
                     alpha));
 
             // 6、水印图片的位置
-            g.drawImage(img, positionWidth, positionHeight, null);
+
+            //右下角位置设置
+
+            g.drawImage(img, buffImg.getWidth() - imgIcon.getIconWidth(), buffImg.getHeight() - imgIcon.getIconHeight(), null);
+            //g.drawImage(img, positionWidth, positionHeight, null);
             g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
             // 7、释放资源
             g.dispose();
 
             // 8、生成图片
             os = new FileOutputStream(targerPath);
-            ImageIO.write(buffImg, "JPG", os);
+            //获取生成图片的格式
+            String formatName = srcImgPath.substring(srcImgPath.lastIndexOf(".") + 1);
+            ImageIO.write(buffImg, formatName, os);
 
             System.out.println("图片完成添加水印图片");
 
