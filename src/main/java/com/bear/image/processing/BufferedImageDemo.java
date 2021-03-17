@@ -19,12 +19,16 @@ public class BufferedImageDemo {
 
     public static void main(String[] args) throws IOException {
 
-        BufferedImage bufferedImage = ImageIO.read(new File(IMAGE));
+        File file = new File(IMAGE);
+
+        BufferedImage bufferedImage = ImageIO.read(file);
         //获取高度
         System.out.println(bufferedImage.getHeight());
         //获取宽度
         System.out.println(bufferedImage.getWidth());
         //System.out.println(bufferedImage.getType());
+        //获取图片大小
+        System.out.println(String.format("%.1f", file.length() / 1024.0));
 
 
     }
