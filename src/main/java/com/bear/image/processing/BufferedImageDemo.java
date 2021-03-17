@@ -25,5 +25,7 @@ public class BufferedImageDemo {
         //获取宽度
         System.out.println(bufferedImage.getWidth());
         //System.out.println(bufferedImage.getType());
+
+
     }
 }
