@@ -17,7 +17,7 @@ public class ImageFormatDemo {
     private static final String srcImage = "/Users/bear/Desktop/3.png";
 
     public static void main(String[] args) throws IOException {
-        InputStream inputStream = new FileInputStream(new File(srcImage));
+        InputStream inputStream = new FileInputStream(srcImage);
         System.out.println(ImageUtil.getRealFormat(inputStream));
         inputStream.close();
     }
