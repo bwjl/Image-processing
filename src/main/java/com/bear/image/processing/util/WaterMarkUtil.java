@@ -93,6 +93,9 @@ public class WaterMarkUtil {
                 return null;
             }
 
+            //String formatName = ImageUtil.getRealFormat(srcImageInputStream);
+
+
             Image srcImg = ImageIO.read(srcImageInputStream);
 
             BufferedImage buffImg = new BufferedImage(srcImg.getWidth(null),
@@ -139,7 +142,6 @@ public class WaterMarkUtil {
             os = new FileOutputStream(targetPath);
             //获取生成图片的真实格式
             //String formatName = srcImgPath.substring(srcImgPath.lastIndexOf(".") + 1);
-            //String formatName = ImageUtil.getRealFormat(srcImageInputStream);
             ImageIO.write(buffImg, "jpg", os);
 
             System.out.println("图片完成添加水印图片");
