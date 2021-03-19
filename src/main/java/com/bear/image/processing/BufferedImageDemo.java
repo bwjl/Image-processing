@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class BufferedImageDemo {
 
-    private static final String IMAGE = "/Users/bear/Desktop/1.3.jpeg";
+    private static final String IMAGE = "/Users/bear/Desktop/wxcs.png";
 
     public static void main(String[] args) throws IOException {
 
@@ -29,7 +29,7 @@ public class BufferedImageDemo {
         //System.out.println(bufferedImage.getType());
         //获取图片大小
         System.out.println(String.format("%.1f", file.length() / 1024.0));
-
+        System.out.println(file.length());
 
     }
 }
