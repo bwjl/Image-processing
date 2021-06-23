@@ -23,8 +23,8 @@ import org.apache.commons.lang.RandomStringUtils;
 
 public class MultipleItalicWatermarksDemo {
 
-    private static final String IMAGE = "/Users/bear/Desktop/1.3.jpeg";
-    private static final String MASK_IMAGE = "/Users/bear/Desktop/1.3." + RandomStringUtils.randomNumeric(4) + ".png";
+    private static final String IMAGE = "/Users/bear/Desktop/1.jpeg";
+    private static final String MASK_IMAGE = "/Users/bear/Desktop/1." + RandomStringUtils.randomNumeric(4) + ".png";
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class MultipleItalicWatermarksDemo {
         MultipleItalicWatermarksUtil.of(fileInputStream)
                 .to(fileOutputStream)
                 .color(Color.BLACK)
-                .interval(180)
+                .interval(720)
                 .rotate(330)
                 .imageType("png")
                 .doMask("仅供房贷所用");
