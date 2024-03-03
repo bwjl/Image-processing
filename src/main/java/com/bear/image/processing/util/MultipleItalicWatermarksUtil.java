@@ -42,12 +42,12 @@ public class MultipleItalicWatermarksUtil {
      * 文字字体
      */
     @Setter
-    private Font font = new Font("simhei", Font.BOLD, 30);
+    private Font font = new Font("simhei", Font.BOLD, 20);
     /**
      * 水印间距
      */
     @Setter
-    private Integer interval = 160;
+    private Integer interval = 40;
 
     /**
      * 旋转度数

@@ -5,7 +5,6 @@ import com.bear.image.processing.util.MultipleItalicWatermarksUtil;
 import lombok.Cleanup;
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +25,7 @@ import java.util.Objects;
 
 public class MultipleItalicWatermarksInFolderDemo {
 
-    private static final String FOLDER_NAME = "/Users/bear/Desktop/gedian/20210623";
+    private static final String FOLDER_NAME = "/Users/bear/Desktop/sat/hotbird 13";
     private static final String[] ALLOWED_FILE_EXT = {"jpg", "jpeg", "png"};
 
     private static final Logger logger = LoggerFactory.getLogger(MultipleItalicWatermarksInFolderDemo.class);
@@ -34,13 +33,14 @@ public class MultipleItalicWatermarksInFolderDemo {
     /**
      * 水印文字
      */
-    private static final String WATERMARK_TEXT = "公众号：葛店在线";
+    private static final String WATERMARK_TEXT = "公众号：卫星参数网";
 
     @SneakyThrows
     public static void main(String[] args) {
 
         File folder = new File(FOLDER_NAME);
         File[] files = folder.listFiles();
+        long timeMillis = System.currentTimeMillis();
         for (int i = 0; i < Objects.requireNonNull(files).length; i++) {
             if (files[i].isFile()) {
                 //是文件
@@ -62,18 +62,19 @@ public class MultipleItalicWatermarksInFolderDemo {
 
                 @Cleanup
                 FileInputStream fileInputStream = FileUtils.openInputStream(new File(FOLDER_NAME + "/" + fileName));
-
-                FileUtil.generateFileDir(FOLDER_NAME + "_watermark/" + newName);
+                String folderName = FOLDER_NAME + "-" + timeMillis + "/" + newName;
+                FileUtil.generateFileDir(folderName);
 
                 @Cleanup
-                FileOutputStream fileOutputStream = new FileOutputStream(FOLDER_NAME + "_watermark/" + newName);
+                FileOutputStream fileOutputStream = new FileOutputStream(folderName);
 
 
                 MultipleItalicWatermarksUtil.of(fileInputStream)
                         .to(fileOutputStream)
                         .color(Color.BLACK)
-                        //.interval(180)
-                        .interval(360)
+                        // 间距
+                        .interval(80)
+                        //.interval(360)
                         .rotate(330)
                         .imageType("png")
                         .doMask(WATERMARK_TEXT);
